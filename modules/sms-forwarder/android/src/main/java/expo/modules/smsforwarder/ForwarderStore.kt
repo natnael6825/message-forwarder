@@ -10,7 +10,9 @@ object ForwarderStore {
 
   @Synchronized fun configs(context: Context): JSONArray {
     val stored = prefs(context).getString("configs", null)
-    if (stored != null && JSONArray(stored).length() > 0) return JSONArray(stored)
+    // An explicitly saved empty array means the user deleted every rule.
+    // Do not fall back to the legacy single-rule key in that case.
+    if (stored != null) return JSONArray(stored)
     val legacy = prefs(context).getString("config", null)
     val migrated = JSONArray()
     if (legacy != null) {
