@@ -1,0 +1,40 @@
+{
+    "expo":  {
+                 "name":  "Relay",
+                 "slug":  "relay-sms-forwarder",
+                 "version":  "1.0.0",
+                 "orientation":  "portrait",
+                 "icon":  "./assets/icon.png",
+                 "userInterfaceStyle":  "dark",
+                 "ios":  {
+                             "supportsTablet":  true
+                         },
+                 "android":  {
+                                 "adaptiveIcon":  {
+                                                      "backgroundColor":  "#E6F4FE",
+                                                      "foregroundImage":  "./assets/android-icon-foreground.png",
+                                                      "backgroundImage":  "./assets/android-icon-background.png",
+                                                      "monochromeImage":  "./assets/android-icon-monochrome.png"
+                                                  },
+                                 "predictiveBackGestureEnabled":  false,
+                                 "package":  "com.relay.smsforwarder",
+                                 "allowBackup":  false,
+                                 "permissions":  [
+                                                     "android.permission.RECEIVE_SMS",
+                                                     "android.permission.READ_SMS",
+                                                     "android.permission.SEND_SMS",
+                                                     "android.permission.POST_NOTIFICATIONS"
+                                                 ],
+                                 "blockedPermissions":  [
+                                                            "android.permission.RECORD_AUDIO"
+                                                        ]
+                             },
+                 "web":  {
+                             "favicon":  "./assets/favicon.png"
+                         },
+                 "plugins":  [
+                                 "expo-dev-client",
+                                 "expo-contacts"
+                             ]
+             }
+}

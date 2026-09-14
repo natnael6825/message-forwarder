@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-permission android:name="android.permission.RECEIVE_SMS" />
+  <uses-permission android:name="android.permission.READ_SMS" />
+  <uses-permission android:name="android.permission.SEND_SMS" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-feature android:name="android.hardware.telephony" android:required="true" />
+  <application>
+    <receiver android:name=".IncomingSmsReceiver" android:exported="true" android:permission="android.permission.BROADCAST_SMS">
+      <intent-filter>
+        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name=".SmsSentReceiver" android:exported="false" />
+    <receiver android:name=".RelayBootReceiver" android:exported="true">
+      <intent-filter><action android:name="android.intent.action.BOOT_COMPLETED" /></intent-filter>
+    </receiver>
+  </application>
+</manifest>
